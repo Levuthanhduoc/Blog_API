@@ -1,1 +1,1 @@
-# Blog_API
+Simple Blog api
