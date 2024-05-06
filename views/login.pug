@@ -1,0 +1,18 @@
+extends layout 
+
+block content 
+    p LOGIN 
+    if message 
+        p=message
+    if errors
+        each err in errors
+            p(style ={color:red})=err 
+    
+    form(action="/login" method="post")
+        label(for="username") username 
+        input(type="text" id="username" name="username" value="" pattern=".{3,16}" required="required" title="username longer than 3 character")
+        br
+        label(for="password") password 
+        input(type="password" id="password" name="password" value="" pattern ="(?=.*[a-zA-Z])(?=.*[\\d])[A-Za-z\\d@$!%*#?&]{8,}" required="required" title="username longer than 7 character have atleast 1 number and 1 letter")
+        br
+        button(type="submit") login
