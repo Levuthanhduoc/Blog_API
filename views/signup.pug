@@ -1,0 +1,23 @@
+extends layout 
+
+block content 
+    p SIGN UP 
+    if message 
+        p=message
+    if errors
+        each err in errors
+            p(style ={color:red})=err 
+    form(action="/signup" method="post")
+        label(for="username") username 
+        input(type="text" id="username" name="username" value="" pattern=".{3,16}" required="required" title="username longer than 3 character")
+        br
+        label(for="password") password 
+        input(type="password" id="password" name="password" value="" pattern ="(?=.*[a-zA-Z])(?=.*[\\d])[A-Za-z\\d@$!%*#?&]{8,}" required="required" title="username longer than 7 character have atleast 1 number and 1 letter")
+        br
+        label(for="rePassword") Re-password 
+        input(type="text" id="repassword" name="rePassword" value="" required title="must be the same as password")
+        br
+        button(class="submit_B" type="submit") Submit
+
+block SCRIPT 
+    script(type="text/javascript" src="/file/js/confirm_password.js")
