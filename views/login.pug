@@ -6,8 +6,7 @@ block content
         p=message
     if errors
         each err in errors
-            p(style ={color:red})=err 
-    
+            p(style ={color:"red"})=err.msg 
     form(action="/login" method="post")
         label(for="username") username 
         input(type="text" id="username" name="username" value="" pattern=".{3,16}" required="required" title="username longer than 3 character")
