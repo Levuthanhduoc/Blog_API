@@ -1,0 +1,29 @@
+.show_pass{
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: white;
+    border: none;
+    height: 20px;
+    width: 20px;
+}
+
+.show_pass.off{
+    background-image: url(../images/eye-closed.svg);
+}
+
+.show_pass.on{
+    background-image: url(../images/eye-open.svg);
+}
+
+.show_pass:hover{
+    opacity: 0.5;
+    
+}
+
+.input-box{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+}
