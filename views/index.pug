@@ -4,6 +4,10 @@ block content
   p=`Welcome to BLOG ${user?user.username:""}`
   if(user === undefined) 
     a(href="/login") Login 
-    a(href="/signup") sign up 
+    a(href="/signup") sign up
+  if(user)
+    a(href="/users/post/new") Create New Post 
+    br
+    a(href="/users/post/history") Post History
 
   p something something
