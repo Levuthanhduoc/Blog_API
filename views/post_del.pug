@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    p Are you sure you want to delete this?
+    p="title: "+ post.title
+    p="Time: "+ post.time
+    div(class="status-box" style={display:"flex",gap:"10px",margin:"0",padding:"0"}) 
+        div="status:"
+        div(style={color:`${post.status==="published"?"green":"red"}`})=post.status
+    p=post.content
+    a(href=post.url)
+        button(type="button") No  
+    form(action=post.url+"/delete" method="post")
+        input(type="hidden" value=post._id)
+        button(type="submit") Yes 

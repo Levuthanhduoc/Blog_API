@@ -1,0 +1,15 @@
+extends layout 
+
+block content
+    p=title?title:"New"
+    form(action=url?url:"/users/post/new" method="post")
+        label(for="title") Title: 
+        input(id="title" type="text" name="title" value=post.title?post.title:"" required)
+        br 
+        textarea(id="content" name="content" required)=value=post.content?post.content:""
+        br
+        label(for="status") 
+        select(id="status" name="status")
+            option(value="published" selected = post.status==="published" ) Published
+            option(value="unpublished" selected = post.status==="unpublished") Unpublished
+        button(class="submit_B" type="submit") Save 

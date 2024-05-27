@@ -1,0 +1,19 @@
+extends layout 
+
+block content
+    div(style={display:"flex",gap:"10px"})
+        a(href="/users/post/history")="<Back"
+        a(href="/") Home
+    br
+    p="title: "+ post.title
+    p="Time: "+ post.time
+    div(class="status-box" style={display:"flex",gap:"10px",margin:"0",padding:"0"}) 
+        div="status:"
+        div(style={color:`${post.status==="published"?"green":"red"}`})=post.status
+    p=post.content
+    form(action=post.url+"/edit" method="get")
+        input(type="hidden" value=post._id)
+        button(type="submit") Edit Post 
+    form(action=post.url+"/delete" method="get")
+        input(type="hidden" value=post._id)
+        button(type="submit") Delete Post 

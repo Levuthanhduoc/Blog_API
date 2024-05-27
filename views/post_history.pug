@@ -1,0 +1,15 @@
+extends layout 
+
+block content
+    a(href="/") Home 
+    p Post History 
+    div(class="content")
+        if(list.length > 0)
+            each item in list 
+                a(href=item.url style={"text-decoration":"none"})
+                    div(style={display:"flex",gap:"10px"})
+                        p=item.title 
+                        p=item.time
+                        p(style={color:`${item.status==="published"?"green":"red"}`})=item.status 
+        a(href=`/users/post/history?page=${page?page:1}`) 
+            button(type="submit") Show more 
