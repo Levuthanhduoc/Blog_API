@@ -1,5 +1,6 @@
 const asyncHandler = require('express-async-handler')
 const path = require('path')
+
 exports.home = asyncHandler(async(req,res,next)=>{
     res.render("index",{user:req.userToken})
 })
