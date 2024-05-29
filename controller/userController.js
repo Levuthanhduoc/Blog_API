@@ -16,6 +16,8 @@ exports.verifyUser = asyncHandler(async(req,res,next)=>{
         await jwt.verify(token,key,(err,data)=>{
             if(err){
                 console.log(err.message);
+                res.redirect("/error");
+                return;
             }else{
                 req.userToken = data;
             }
@@ -84,7 +86,7 @@ exports.user_login=[
                         id:user[0]._id,
                         username:req.body.username,
                     },key,{ algorithm: 'RS256',expiresIn:"1h" })
-                    res.cookie("auth",token,new Date(Date.now() + 60*60*1000));
+                    res.cookie("auth",token,{expires:new Date(Date.now() + 60*60*1000)});
                     res.redirect("/");
                 }
                 else{
